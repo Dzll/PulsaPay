@@ -57,34 +57,3 @@ Route::post('pulsa/editpulsa', 'ApiController@pulsaedit');
 // No Pulsa, No Life
 // BebasTapiSopan
 // janganLupaTitikKoma;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//Cek semua data pulsaku
-Route::get('pulsa/v7/user', function(){ $user = User::all(); return $user->toArray(); });
-Route::get('pulsa/v7/transaksi', function(){ $transaksi = Transaksi::all(); return $transaksi->toArray(); });
-Route::get('pulsa/v7/pulsapay', function(){ $pulsapay = PulsaPay::all(); return $pulsapay->toArray(); });
-Route::get('pulsa/v7/paydata', function(){ $paydata = PayData::all(); return $paydata->toArray(); });
-Route::get('pulsa/v7/pulsadata', function(){ $pulsadata = PulsaData::all(); return $pulsadata->toArray(); });
-//Admin Control Panel
-Route::get('pulsa/admin/v7/user/clc/{id}', function($id){ DB::table('users')->delete($id); });
-Route::get('pulsa/admin/v7/transaksi/clc/{id}', function($id){ DB::table('transaksis')->where('id_transaksi',$id)->delete(); });
-Route::get('pulsa/admin/v7/pulsapay/clc/{id}', function($id){ DB::table('pulsa_pays')->where('id_pulsapay',$id)->delete(); });
-Route::get('pulsa/admin/v7/paydata/clc/{id}', function($id){ DB::table('pay_datas')->where('id_pay',$id)->delete(); });
-Route::get('pulsa/admin/v7/pulsadata/clc/{id}', function($id){ DB::table('pulsa_datas')->where('id_pulsa',$id)->delete(); });
